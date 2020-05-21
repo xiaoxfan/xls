@@ -22,6 +22,9 @@ type Row struct {
 func (r *Row) Col(i int) string {
 	serial := uint16(i)
 	if ch, ok := r.cols[serial]; ok {
+		if ch == nil || r.wb == nil {
+			return ""
+		}
 		strs := ch.String(r.wb)
 		return strs[0]
 	} else {
