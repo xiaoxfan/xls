@@ -26,6 +26,9 @@ func (r *Row) Col(i int) string {
 			return ""
 		}
 		strs := ch.String(r.wb)
+		if len(strs) == 0 {
+			return ""
+		}
 		return strs[0]
 	} else {
 		for _, v := range r.cols {
